@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alex Morgan's responsive web design portfolio and CSS assignment showcase.">
+  <title>Alex Morgan | Portfolio</title>
+  <link rel="stylesheet" href="Q1.css">
+</head>
+<body>
+  <main class="page-content">
+    <header class="portfolio-header">
+      <a class="portfolio-brand" href="#portfolio">Alex Morgan</a>
+      <nav class="portfolio-nav" aria-label="Portfolio navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <article class="profile-card" id="profile">
+      <div class="profile-banner" aria-hidden="true"></div>
+
+      <section class="profile-content" aria-labelledby="profile-name">
+        <div class="avatar" aria-hidden="true">AM</div>
+        <p class="eyebrow">Hello, I'm</p>
+        <h1 id="profile-name">Alex Morgan</h1>
+        <p class="role">Aspiring Web Designer</p>
+
+        <p class="bio">
+          I enjoy turning ideas into simple, welcoming websites. I’m currently
+          learning HTML and CSS and exploring how thoughtful design can make
+          the web easier for everyone to use.
+        </p>
+
+        <div class="interests">
+          <h2>A few things I enjoy</h2>
+          <ul class="interest-list">
+            <li>Web design</li>
+            <li>Photography</li>
+            <li>Learning new skills</li>
+          </ul>
+        </div>
+
+        <a class="contact-link" href="mailto:alex@example.com">Get in touch</a>
+      </section>
+    </article>
+
+    <section class="products" id="products" aria-labelledby="products-title">
+      <p class="eyebrow">Assignment 2</p>
+      <h2 id="products-title">Featured products</h2>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">🎧</div>
+          <h3>Studio Headphones</h3>
+          <p>Comfortable, clear sound for music, study, and everyday listening.</p>
+          <p class="product-price">$79</p>
+        </article>
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">⌚</div>
+          <h3>Everyday Watch</h3>
+          <p>A timeless design that helps you keep track of every day.</p>
+          <p class="product-price">$55</p>
+        </article>
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">📷</div>
+          <h3>Mini Camera</h3>
+          <p>A compact camera for capturing your favorite moments on the go.</p>
+          <p class="product-price">$120</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="flex-example" aria-labelledby="flex-title">
+      <p class="eyebrow">Assignment 4</p>
+      <h2 id="flex-title">A layout with Flexbox</h2>
+      <div class="flex-layout">
+        <header class="flex-header">
+          <strong>Flexbox Demo</strong>
+          <span>Header arranged in a row</span>
+        </header>
+        <div class="flex-content">
+          <article class="flex-panel">
+            <h3>Main content</h3>
+            <p>
+              This content area and the sidebar are arranged in a row using
+              <code>display: flex</code>.
+            </p>
+          </article>
+          <aside class="flex-panel flex-sidebar">
+            <h3>Sidebar</h3>
+            <p><code>justify-content</code> and <code>align-items</code> help position these panels.</p>
+          </aside>
+        </div>
+        <footer class="flex-footer">Footer — the overall layout uses a column</footer>
+      </div>
+    </section>
+
+    <section class="assignment-section" id="login-demo" aria-labelledby="login-title">
+      <p class="eyebrow">Assignment 5</p>
+      <h2 id="login-title">Login form</h2>
+      <form class="login-form">
+        <label for="login-email">Email address</label>
+        <input id="login-email" name="email" type="email" placeholder="you@example.com" autocomplete="email">
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password">
+        <button type="submit">Log in</button>
+      </form>
+    </section>
+
+    <section class="assignment-section" id="position-demo" aria-labelledby="position-title">
+      <p class="eyebrow">Assignment 6</p>
+      <h2 id="position-title">CSS positioning</h2>
+      <div class="position-stage">
+        <div class="relative-box">
+          Relative box
+          <span class="absolute-box">Absolute box</span>
+        </div>
+      </div>
+      <p class="section-note">The “Need help?” button remains fixed in the bottom-right corner while scrolling.</p>
+    </section>
+
+    <section class="assignment-section" id="gallery-demo" aria-labelledby="gallery-title">
+      <p class="eyebrow">Assignment 7</p>
+      <h2 id="gallery-title">Photo gallery</h2>
+      <div class="photo-grid">
+        <img src="https://picsum.photos/seed/quiet-forest/600/400" alt="Sunlight falling across a forest">
+        <img src="https://picsum.photos/seed/blue-coast/600/400" alt="Waves along a rocky coastline">
+        <img src="https://picsum.photos/seed/high-mountain/600/400" alt="Mountain peaks beneath the sky">
+        <img src="https://picsum.photos/seed/old-city/600/400" alt="Architecture in a city street">
+        <img src="https://picsum.photos/seed/desert-path/600/400" alt="A path through a desert landscape">
+        <img src="https://picsum.photos/seed/garden-flowers/600/400" alt="Flowers in a green garden">
+      </div>
+    </section>
+
+    <section class="assignment-section" id="loading-demo" aria-labelledby="loading-title">
+      <p class="eyebrow">Assignment 8</p>
+      <h2 id="loading-title">Animated loading box</h2>
+      <div class="loading-track" role="img" aria-label="A box moves from left to right in a loading track">
+        <div class="loading-box"></div>
+      </div>
+    </section>
+
+    <section class="assignment-section responsive-example" id="media-demo" aria-labelledby="media-title">
+      <p class="eyebrow">Assignment 9</p>
+      <h2 id="media-title">Responsive media query layout</h2>
+      <p class="section-note">Resize the page to see the horizontal desktop layout switch to a vertical mobile layout.</p>
+      <div class="responsive-row">
+        <article class="responsive-item">
+          <h3>Explore</h3>
+          <p>Discover new ideas and places.</p>
+        </article>
+        <article class="responsive-item">
+          <h3>Create</h3>
+          <p>Turn inspiration into something useful.</p>
+        </article>
+        <article class="responsive-item">
+          <h3>Share</h3>
+          <p>Share your work with the community.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="portfolio-intro">
+        <p class="eyebrow">My portfolio</p>
+        <h2 id="portfolio-title">Building thoughtful experiences for the web.</h2>
+        <p>A collection of my skills, practice projects, and ways to get in touch.</p>
+      </div>
+
+      <section class="portfolio-block" id="about" aria-labelledby="about-title">
+        <h3 id="about-title">About me</h3>
+        <p>
+          I’m Alex Morgan, an aspiring web designer who enjoys making useful,
+          accessible, and welcoming websites. I’m learning front-end
+          development and building projects to turn new ideas into practice.
+        </p>
+      </section>
+
+      <section class="portfolio-block" id="skills" aria-labelledby="skills-title">
+        <h3 id="skills-title">Skills</h3>
+        <ul class="portfolio-skills">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Responsive design</li>
+          <li>Flexbox</li>
+          <li>CSS Grid</li>
+          <li>Accessibility basics</li>
+        </ul>
+      </section>
+
+      <section class="portfolio-block" id="projects" aria-labelledby="projects-title">
+        <h3 id="projects-title">Selected projects</h3>
+        <div class="portfolio-projects">
+          <article class="portfolio-project">
+            <p class="project-number">01 / Profile</p>
+            <h4>Personal profile</h4>
+            <p>A responsive profile card using typography, color, and custom backgrounds.</p>
+            <span>HTML · CSS</span>
+          </article>
+          <article class="portfolio-project">
+            <p class="project-number">02 / Products</p>
+            <h4>Product cards</h4>
+            <p>A mobile-friendly product layout featuring reusable cards and spacing.</p>
+            <span>CSS Grid · Responsive design</span>
+          </article>
+          <article class="portfolio-project">
+            <p class="project-number">03 / Gallery</p>
+            <h4>Photo gallery</h4>
+            <p>An image gallery that adapts its columns to different screen sizes.</p>
+            <span>CSS Grid · Media queries</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-contact" id="contact" aria-labelledby="contact-title">
+        <div>
+          <h3 id="contact-title">Let’s connect</h3>
+          <p>Have a question or want to talk about a project? Send me a message.</p>
+        </div>
+        <a class="contact-link" href="mailto:alex@example.com">alex@example.com</a>
+      </section>
+    </section>
+  </main>
+  <a class="fixed-notice" href="mailto:alex@example.com" aria-label="Contact Alex for help">Need help?</a>
+</body>
+</html>
