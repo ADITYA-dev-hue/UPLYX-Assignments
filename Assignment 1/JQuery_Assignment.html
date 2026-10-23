@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Assignment</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        section {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 0.75rem;
+        }
+
+        input {
+            box-sizing: border-box;
+            max-width: 100%;
+            padding: 0.4rem;
+        }
+
+        button {
+            margin: 0.75rem 0.25rem 0 0;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+        }
+
+        output {
+            display: block;
+            margin-top: 0.75rem;
+        }
+
+        #effect-box {
+            width: 180px;
+            height: 100px;
+            margin-top: 1rem;
+            border-radius: 8px;
+            background: #9ed8c5;
+        }
+
+        #student-details p {
+            margin: 0.25rem 0;
+        }
+
+        .highlighted-paragraph {
+            padding: 1rem;
+            border-radius: 6px;
+            background-color: #fff1b8;
+            color: #8a2d18;
+            font-size: 1.25rem;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#hide-paragraphs").on("click", function () {
+                $(".demo-paragraph").hide();
+            });
+
+            $("#show-paragraphs").on("click", function () {
+                $(".demo-paragraph").show();
+            });
+
+            $(".color-paragraph").on("click", function () {
+                $(this).css("color", "#1769aa");
+            });
+
+            $("#fade-in").on("click", function () {
+                $("#effect-box").stop(true, true).fadeIn();
+            });
+
+            $("#fade-out").on("click", function () {
+                $("#effect-box").stop(true, true).fadeOut();
+            });
+
+            $("#slide-up").on("click", function () {
+                $("#effect-box").stop(true, true).slideUp();
+            });
+
+            $("#slide-down").on("click", function () {
+                $("#effect-box").stop(true, true).slideDown();
+            });
+
+            $("#student-form").on("submit", function (event) {
+                event.preventDefault();
+
+                const name = $("#student-name").val().trim();
+                const course = $("#student-course").val().trim();
+                const phone = $("#student-phone").val().trim();
+                const $details = $("<div>");
+
+                $("<p>").text("Name: " + name).appendTo($details);
+                $("<p>").text("Course: " + course).appendTo($details);
+                $("<p>").text("Phone Number: " + phone).appendTo($details);
+                $("#student-details").empty().append($details.children());
+                this.reset();
+            });
+
+            $("#add-item").on("click", function () {
+                const itemText = $("#new-item").val().trim();
+
+                if (itemText !== "") {
+                    $("<li>").text(itemText).appendTo("#item-list");
+                    $("#new-item").val("");
+                }
+            });
+
+            $("#remove-item").on("click", function () {
+                $("#item-list li").last().remove();
+            });
+
+            $("#change-item").on("click", function () {
+                const itemText = $("#new-item").val().trim();
+                const $firstItem = $("#item-list li").first();
+
+                if (itemText !== "" && $firstItem.length > 0) {
+                    $firstItem.text(itemText);
+                    $("#new-item").val("");
+                }
+            });
+
+            $("#toggle-highlight").on("click", function () {
+                $("#styled-paragraph").toggleClass("highlighted-paragraph");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery Assignment</h1>
+
+    <section>
+        <h2>1. jQuery Selectors &amp; Events</h2>
+        <p class="demo-paragraph color-paragraph">First paragraph — click to change its color.</p>
+        <p class="demo-paragraph color-paragraph">Second paragraph — click to change its color.</p>
+        <p class="demo-paragraph color-paragraph">Third paragraph — click to change its color.</p>
+        <button id="hide-paragraphs" type="button">Hide all paragraphs</button>
+        <button id="show-paragraphs" type="button">Show all paragraphs</button>
+    </section>
+
+    <section>
+        <h2>2. jQuery Effects</h2>
+        <button id="fade-in" type="button">Fade In</button>
+        <button id="fade-out" type="button">Fade Out</button>
+        <button id="slide-up" type="button">Slide Up</button>
+        <button id="slide-down" type="button">Slide Down</button>
+        <div id="effect-box" aria-label="Effects demo box"></div>
+    </section>
+
+    <section>
+        <h2>3. jQuery Form Handling</h2>
+        <form id="student-form">
+            <label for="student-name">Name</label>
+            <input id="student-name" name="name" type="text" required>
+            <label for="student-course">Course</label>
+            <input id="student-course" name="course" type="text" required>
+            <label for="student-phone">Phone Number</label>
+            <input id="student-phone" name="phone" type="tel" required>
+            <button type="submit">Submit student details</button>
+        </form>
+        <div id="student-details" aria-live="polite"></div>
+    </section>
+
+    <section>
+        <h2>4. jQuery DOM Manipulation</h2>
+        <ul id="item-list">
+            <li>Notebook</li>
+            <li>Pen</li>
+            <li>Backpack</li>
+        </ul>
+        <label for="new-item">New or replacement item text</label>
+        <input id="new-item" type="text">
+        <br>
+        <button id="add-item" type="button">Add a new item</button>
+        <button id="remove-item" type="button">Remove last item</button>
+        <button id="change-item" type="button">Change first item text</button>
+    </section>
+
+    <section>
+        <h2>5. jQuery Class and CSS Manipulation</h2>
+        <h3>Toggle paragraph styling</h3>
+        <p id="styled-paragraph">Click the button to add or remove the paragraph's highlighted style.</p>
+        <button id="toggle-highlight" type="button">Toggle paragraph style</button>
+    </section>
+</body>
+</html>

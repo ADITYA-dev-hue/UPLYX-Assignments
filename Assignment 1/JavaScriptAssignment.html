@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        section {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 0.75rem;
+        }
+
+        input {
+            box-sizing: border-box;
+            max-width: 100%;
+            padding: 0.4rem;
+        }
+
+        button {
+            margin-top: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+        }
+
+        output {
+            display: block;
+            margin-top: 0.75rem;
+            white-space: pre-line;
+        }
+    </style>
+    <script src="JavaScriptAssignment.js" defer></script>
+</head>
+<body>
+    <h1>JavaScript Assignment</h1>
+
+    <section>
+        <h2>1. Variables, Data Types &amp; Operators</h2>
+        <form id="arithmetic-form">
+            <label for="first-number">First number</label>
+            <input id="first-number" type="number" step="any" required>
+            <label for="second-number">Second number</label>
+            <input id="second-number" type="number" step="any" required>
+            <button type="submit">Calculate</button>
+        </form>
+        <output id="arithmetic-result" aria-live="polite"></output>
+    </section>
+
+    <section>
+        <h2>2. Conditional Statements</h2>
+        <form id="number-form">
+            <label for="checked-number">Enter a number</label>
+            <input id="checked-number" type="number" step="any" required>
+            <button type="submit">Check number</button>
+        </form>
+        <output id="number-result" aria-live="polite"></output>
+    </section>
+
+    <section>
+        <h2>3. Functions and Arrays</h2>
+        <form id="statistics-form">
+            <label for="array-numbers">Numbers separated by commas</label>
+            <input id="array-numbers" type="text" placeholder="e.g. 4, 8, 12" required>
+            <button type="submit">Get statistics</button>
+        </form>
+        <output id="statistics-result" aria-live="polite"></output>
+    </section>
+
+    <section>
+        <h2>4. DOM Manipulation</h2>
+        <p id="message">This paragraph will change when you click the button.</p>
+        <button id="change-page" type="button">Change paragraph and background</button>
+    </section>
+
+    <section>
+        <h2>5. Form Validation</h2>
+        <form id="registration-form" novalidate>
+            <label for="name">Name</label>
+            <input id="name" type="text" autocomplete="name">
+            <label for="email">Email</label>
+            <input id="email" type="text" inputmode="email" autocomplete="email">
+            <label for="password">Password</label>
+            <input id="password" type="password" autocomplete="new-password">
+            <button type="submit">Validate registration</button>
+        </form>
+        <output id="registration-result" aria-live="polite"></output>
+    </section>
+</body>
+</html>
