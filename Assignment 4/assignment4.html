@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript and jQuery Assignments</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #1f2937;
+        background: #f3f6fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+        line-height: 1.6;
+        background: linear-gradient(180deg, #f3f6fb 0%, #fff 45rem);
+      }
+
+      h1 {
+        margin: 2.5rem 0 1rem;
+        color: #173b70;
+        font-size: clamp(1.7rem, 4vw, 2.3rem);
+      }
+
+      h1:first-child {
+        margin-top: 0;
+      }
+
+      h2 {
+        margin-top: 0;
+        color: #234f87;
+        font-size: 1.25rem;
+      }
+
+      section {
+        margin: 1.5rem 0;
+        padding: 1.25rem;
+        border: 1px solid #e1e8f0;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 3px 12px rgb(25 50 80 / 5%);
+        transition: transform 180ms ease, box-shadow 180ms ease,
+          border-color 180ms ease;
+      }
+
+      section:hover {
+        transform: translateY(-2px);
+        border-color: #b6cbe4;
+        box-shadow: 0 9px 22px rgb(25 50 80 / 10%);
+      }
+
+      label {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      input {
+        max-width: 100%;
+        margin: 0.2rem 0 0 0.35rem;
+        padding: 0.55rem 0.7rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font: inherit;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      input:focus {
+        border-color: #3779c5;
+        outline: none;
+        box-shadow: 0 0 0 3px rgb(55 121 197 / 18%);
+      }
+
+      button {
+        margin: 0.25rem;
+        padding: 0.55rem 0.9rem;
+        border: 0;
+        border-radius: 7px;
+        color: #fff;
+        background: #2867a8;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 140ms ease, background-color 140ms ease,
+          box-shadow 140ms ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        background: #194f89;
+        box-shadow: 0 4px 10px rgb(25 79 137 / 22%);
+      }
+
+      button:active {
+        transform: translateY(1px) scale(0.98);
+        box-shadow: none;
+      }
+
+      button:focus-visible {
+        outline: 3px solid #8fc4ff;
+        outline-offset: 2px;
+      }
+
+      .result {
+        white-space: pre-line;
+      }
+
+      .result:not(:empty),
+      #numberCheckResult:not(:empty),
+      #registrationResult:not(:empty),
+      #studentDetails:not(:empty) {
+        margin-top: 0.8rem;
+        padding: 0.65rem 0.8rem;
+        border-left: 3px solid #4d91d2;
+        border-radius: 4px;
+        background: #f0f7ff;
+        animation: result-appear 220ms ease-out;
+      }
+
+      .selector-paragraph {
+        padding: 0.45rem 0.6rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 160ms ease, color 160ms ease;
+      }
+
+      .selector-paragraph:hover {
+        background: #f0f5fb;
+      }
+
+      #effectsBox {
+        width: 180px;
+        height: 90px;
+        margin-top: 0.75rem;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #78c4e6, #458dcc);
+        box-shadow: 0 5px 14px rgb(48 121 174 / 22%);
+        transition: background 180ms ease;
+      }
+
+      .highlighted {
+        border-radius: 6px;
+        padding: 0.75rem;
+        box-shadow: inset 0 0 0 1px rgb(255 190 58 / 45%);
+        transition: all 180ms ease;
+      }
+
+      @keyframes result-appear {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 1.25rem 0.85rem 3rem;
+        }
+
+        section {
+          padding: 1rem;
+        }
+
+        input {
+          margin-left: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Assignment</h1>
+
+    <section>
+      <h2>1. Variables, Data Types &amp; Operators</h2>
+      <form id="arithmeticForm">
+        <label>First number: <input id="firstNumber" type="number" step="any" required></label>
+        <label>Second number: <input id="secondNumber" type="number" step="any" required></label>
+        <button type="submit">Calculate</button>
+      </form>
+      <p id="arithmeticResult" class="result" aria-live="polite"></p>
+    </section>
+
+    <section>
+      <h2>2. Conditional Statements</h2>
+      <form id="numberCheckForm">
+        <label>Number: <input id="numberToCheck" type="number" step="any" required></label>
+        <button type="submit">Check number</button>
+      </form>
+      <p id="numberCheckResult" aria-live="polite"></p>
+    </section>
+
+    <section>
+      <h2>3. Functions and Arrays</h2>
+      <form id="statisticsForm">
+        <label>Numbers (separated by commas): <input id="numbersInput" type="text" placeholder="12, 4, 25, 8" required></label>
+        <button type="submit">Calculate statistics</button>
+      </form>
+      <p id="statisticsResult" class="result" aria-live="polite"></p>
+    </section>
+
+    <section>
+      <h2>4. DOM Manipulation</h2>
+      <p id="domParagraph">Click the button to change this paragraph and the page background.</p>
+      <button id="changePageButton" type="button">Change text and background</button>
+    </section>
+
+    <section>
+      <h2>5. Form Validation</h2>
+      <form id="registrationForm">
+        <label>Name: <input id="registrationName" type="text"></label>
+        <label>Email: <input id="registrationEmail" type="text"></label>
+        <label>Password: <input id="registrationPassword" type="password"></label>
+        <button type="submit">Validate registration</button>
+      </form>
+      <p id="registrationResult" aria-live="polite"></p>
+    </section>
+
+    <h1>jQuery Assignment</h1>
+
+    <section>
+      <h2>1. jQuery Selectors &amp; Events</h2>
+      <p class="selector-paragraph">First paragraph: click to change its color.</p>
+      <p class="selector-paragraph">Second paragraph: click to change its color.</p>
+      <p class="selector-paragraph">Third paragraph: click to change its color.</p>
+      <button class="hide-paragraphs" type="button">Hide all paragraphs</button>
+      <button class="show-paragraphs" type="button">Show all paragraphs</button>
+    </section>
+
+    <section>
+      <h2>2. jQuery Effects</h2>
+      <button id="fadeInButton" type="button">Fade In</button>
+      <button id="fadeOutButton" type="button">Fade Out</button>
+      <button id="slideUpButton" type="button">Slide Up</button>
+      <button id="slideDownButton" type="button">Slide Down</button>
+      <div id="effectsBox" aria-label="Effects demonstration box"></div>
+    </section>
+
+    <section>
+      <h2>3. jQuery Form Handling</h2>
+      <form id="studentForm">
+        <label>Name: <input id="studentName" type="text" required></label>
+        <label>Course: <input id="studentCourse" type="text" required></label>
+        <label>Phone Number: <input id="studentPhone" type="tel" required></label>
+        <button type="submit">Add student</button>
+      </form>
+      <div id="studentDetails" aria-live="polite"></div>
+    </section>
+
+    <section>
+      <h2>4. jQuery DOM Manipulation</h2>
+      <ul id="itemList">
+        <li>Notebook</li>
+        <li>Pen</li>
+        <li>Eraser</li>
+      </ul>
+      <label>New item: <input id="newItem" type="text"></label>
+      <button id="addItemButton" type="button">Add item</button>
+      <button id="removeItemButton" type="button">Remove last item</button>
+      <button id="changeItemButton" type="button">Change first item text</button>
+    </section>
+
+    <section>
+      <h2>5. jQuery Class and CSS Manipulation</h2>
+      <h3>Paragraph styling</h3>
+      <p id="styleParagraph">Click the button to toggle this paragraph's styling.</p>
+      <button id="styleParagraphButton" type="button">Toggle paragraph style</button>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assignment4.js"></script>
+  </body>
+</html>
