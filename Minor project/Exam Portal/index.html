@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Quizly — CBSE Class 10 Quiz & Student Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <header>
+    <a class="brand" href="#" id="brand"><span class="brand-mark">Q</span> quizly</a>
+    <nav aria-label="Main navigation">
+      <button class="active" data-page="home">Home</button>
+      <button data-page="dashboard" id="dashboard-nav" hidden>Dashboard</button>
+      <button data-page="instructions">Take a test</button>
+      <button data-page="quiz" id="quiz-nav" hidden>Quiz</button>
+      <button data-page="results" id="results-nav" hidden>Results</button>
+      <button data-page="login" id="login-nav">Login</button>
+      <button data-page="register" id="register-nav">Register</button>
+      <button id="logout-nav" hidden>Logout</button>
+    </nav>
+  </header>
+  <main>
+    <section class="page active" id="home-page">
+      <div class="hero">
+        <div><div class="eyebrow">CBSE Class 10 · Learn at your pace</div><h1>Make every<br>answer <span>count.</span></h1><p>Choose from five subject tests, each with 30 multiple-choice questions. Track your progress and review what you learn.</p><div class="cta-row"><input class="name-input" id="guest-name" maxlength="40" placeholder="Your name (for a practice test)" aria-label="Your name"><button class="btn" id="guest-start">Explore subject tests →</button></div><p class="error" id="guest-error"></p><div class="actions"><button class="link-button" data-page="register">Create student account</button><button class="link-button" data-page="login">Log in</button></div></div>
+        <div class="hero-art"><div class="preview"><small>QUESTION 04 / 30　 ·　 ◷ 28:42</small><strong>Which planet is known as the Red Planet?</strong><div class="preview-answer">A　 Venus</div><div class="preview-answer selected">B　 Mars　 ✓</div><div class="preview-answer">C　 Jupiter</div></div></div>
+      </div>
+      <div class="features"><article class="feature"><strong>⏱ Timed practice</strong><p>30 minutes for each 30-question test.</p></article><article class="feature"><strong>↗ Review and improve</strong><p>See correct answers after every attempt.</p></article><article class="feature"><strong>▣ Saved scores</strong><p>Practice results stay in this browser.</p></article></div>
+      <div class="section-heading"><h2>Recent test scores</h2><span class="muted" id="score-count"></span></div><div class="score-list" id="score-history"></div>
+      <div class="notice" style="margin-top:18px">Student accounts and records are stored in this browser for demonstration only. This is not production-secure authentication. Do not enter real or sensitive data.</div>
+    </section>
+
+    <section class="page" id="register-page">
+      <div class="auth-grid"><div class="auth-copy"><div class="eyebrow">Join Quizly</div><h2>Create a student account</h2><p>Register to see your student dashboard and take Class 10 practice tests.</p><div class="notice">The first account registered in this browser becomes the demo administrator. Future registrations are student accounts.</div></div>
+        <form class="panel auth-form" id="register-form" novalidate>
+          <label class="field">Full name<input id="register-name" maxlength="60" autocomplete="name" required></label>
+          <label class="field">Email<input id="register-email" type="email" maxlength="120" autocomplete="email" required></label>
+          <label class="field">Course / subject<select id="register-course" required></select></label>
+          <label class="field">Password<input id="register-password" type="password" minlength="8" autocomplete="new-password" required><small>At least 8 characters. Passwords are locally hashed for this demo.</small></label>
+          <label class="field">Confirm password<input id="register-confirm" type="password" minlength="8" autocomplete="new-password" required></label>
+          <p class="error" id="register-error" aria-live="polite"></p><button class="btn full" type="submit">Create account</button>
+          <p class="muted" style="margin:0;text-align:center;font-size:12px">Already registered? <button class="link-button" type="button" data-page="login">Log in</button></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="page" id="login-page">
+      <div class="auth-grid"><div class="auth-copy"><div class="eyebrow">Welcome back</div><h2>Log in to your account</h2><p>Open your dashboard to view student records or continue with your practice tests.</p><div class="notice">Demo login is stored locally in this browser. It is not suitable for real accounts or private student data.</div></div>
+        <form class="panel auth-form" id="login-form" novalidate>
+          <label class="field">Email<input id="login-email" type="email" autocomplete="username" required></label>
+          <label class="field">Password<input id="login-password" type="password" autocomplete="current-password" required></label>
+          <p class="error" id="login-error" aria-live="polite"></p><button class="btn full" type="submit">Log in</button>
+          <p class="muted" style="margin:0;text-align:center;font-size:12px">New here? <button class="link-button" type="button" data-page="register">Create an account</button></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="page" id="dashboard-page">
+      <div class="section-heading"><div><div class="eyebrow">Student management</div><h2>Dashboard</h2><p class="muted" id="dashboard-welcome"></p></div><button class="btn" id="add-student">＋ Add student</button></div>
+      <p class="error" id="storage-error" role="status"></p>
+      <div class="dashboard-stats"><div class="dashboard-stat"><strong id="total-students">0</strong><small>Total students</small></div><div class="dashboard-stat"><strong id="total-courses">0</strong><small>Courses</small></div><div class="dashboard-stat"><strong id="user-role">Student</strong><small>Account role</small></div></div>
+      <div class="panel">
+        <div class="toolbar"><div><h3>Student records</h3><small class="muted" id="access-note"></small></div><input class="search" id="student-search" type="search" placeholder="Search name or course" aria-label="Search by name or course"></div>
+        <form class="student-form" id="student-form" hidden>
+          <h3 id="student-form-title">Add student</h3><input id="record-id" type="hidden">
+          <div class="record-grid"><label class="field">Full name<input id="record-name" maxlength="60" required></label><label class="field">Email<input id="record-email" type="email" maxlength="120" required></label><label class="field">Course<select id="record-course" required></select></label></div>
+          <p class="error" id="record-error"></p><div class="actions"><button class="btn" type="submit" id="record-submit">Save student</button><button class="btn secondary" type="button" id="record-cancel">Cancel</button></div>
+        </form>
+        <div class="table-wrap"><table class="student-table"><thead><tr><th>Student</th><th>Email</th><th>Course</th><th>Account</th><th style="text-align:right">Actions</th></tr></thead><tbody id="student-table"></tbody></table><div class="empty" id="no-students" hidden>No records found. Try another search.</div></div>
+      </div>
+      <div class="notice" style="margin-top:14px">Local demo: account and student data are stored in this browser only. Do not use real or sensitive data.</div>
+    </section>
+
+    <section class="page" id="instructions-page">
+      <div class="eyebrow">CBSE Class 10 practice</div><h2>Choose your subject</h2><p class="muted">Each shuffled test has 30 questions, one point each, and a 30-minute timer. These are original practice questions based on common Class 10 CBSE topics, not official CBSE questions. Check the <a class="quiet-link" href="https://cbseacademic.nic.in/curriculum_2027.html" target="_blank" rel="noopener noreferrer">CBSE 2026–27 curriculum</a> and prescribed texts for your session, including any chapter exclusions.</p>
+      <div class="subject-grid" id="subject-picker"></div>
+      <div class="instructions">
+        <div class="panel"><h3>Before you begin</h3><ul><li>Answer 30 questions selected from the chosen subject's practice bank.</li><li>Use Previous and Next to revisit answers before submitting.</li><li>Your score updates as you answer; the quiz submits when the timer ends.</li><li>After submitting, review each correct answer.</li></ul></div>
+        <aside class="panel"><h3 id="chosen-subject">Choose a subject to continue</h3><div class="summary-line"><span>Questions</span><strong>30</strong></div><div class="summary-line"><span>Time limit</span><strong>30 minutes</strong></div><div class="summary-line"><span>Passing grade</span><strong>60% · Grade C</strong></div><button class="btn full" id="start-quiz" disabled>Choose a subject first</button></aside>
+      </div>
+    </section>
+
+    <section class="page" id="quiz-page">
+      <div class="quiz-head"><div><div class="eyebrow" id="quiz-subject"></div><h2>You've got this, <span id="quiz-player"></span>.</h2></div><div class="timer" id="timer"><span id="time-left">30:00</span></div></div>
+      <div class="progress-info"><span id="question-number"></span><span id="answered-number"></span></div><div class="progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" id="progress"><span id="progress-fill"></span></div>
+      <article class="question-card"><div class="question-category" id="question-category"></div><h3 class="question" id="question-text"></h3><div class="options" id="options"></div>
+        <div class="question-footer"><strong id="live-score"></strong><div class="actions"><button class="btn secondary" id="previous">← Previous</button><button class="btn" id="next">Next →</button><button class="btn" id="submit-quiz" hidden>Finish test ✓</button></div></div>
+      </article>
+    </section>
+
+    <section class="page" id="results-page"><div class="results-head"><div class="eyebrow">Test complete</div><h1>Well done, <span id="result-player"></span>!</h1><p><strong id="result-subject"></strong> · <span id="result-message"></span></p></div><div class="stats"><div class="stat"><strong id="result-score"></strong><small>Correct answers</small></div><div class="stat"><strong id="result-percent"></strong><small>Overall score</small></div><div class="stat"><strong id="result-grade"></strong><small>Grade</small></div></div><div class="actions center-actions"><button class="btn" id="review-button">Review answers →</button><button class="btn secondary" id="retry-button">Try another subject</button><button class="btn text" data-page="home">Home</button></div></section>
+
+    <section class="page" id="review-page"><button class="link-button" data-page="results">← Back to results</button><div class="section-heading"><div><div class="eyebrow">Answer review</div><h2 id="review-title">Let's go through it</h2><p class="muted" id="review-summary"></p></div></div><div id="review-list"></div></section>
+  </main>
+  <footer>Quizly · Class 10 CBSE practice and student portal · Local demo only</footer>
+</div>
+<div class="modal" id="student-modal" role="dialog" aria-modal="true" aria-labelledby="modal-name"><div class="modal-card"><div class="modal-top"><div><div class="eyebrow">Student record</div><h3 id="modal-name"></h3></div><button class="modal-close" id="modal-close" aria-label="Close">×</button></div><div class="summary-line"><span>Email</span><strong id="modal-email"></strong></div><div class="summary-line"><span>Course</span><strong id="modal-course"></strong></div><div class="summary-line"><span>Account</span><strong id="modal-account"></strong></div><div class="actions" style="justify-content:flex-end;margin-top:14px"><button class="btn secondary" id="modal-dismiss">Close</button></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>
